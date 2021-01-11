@@ -12,9 +12,11 @@
 .title {
   text-align: center;
   margin-top: 100px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P',
+  cursive;
+  color: white;
 }
 
-.game-wrapper {
-  background: grey;
+body {
+  background: black;
 }
