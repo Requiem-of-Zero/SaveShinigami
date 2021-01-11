@@ -60,7 +60,7 @@ function drawCharacter(img, spriteX, spriteY, spriteW, spriteH, dX, dY, dW, dH){
 
 setInterval(() => {
   animate()
-}, 35)
+}, 40)
 
 const animate = () => {
   ctx.clearRect(0,0, canvas.width, canvas.height)

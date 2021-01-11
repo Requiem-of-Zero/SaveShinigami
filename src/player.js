@@ -1,7 +1,7 @@
 class Player {
   constructor(ctx, canvas){
     const character = new Image();
-    character.src = "../dist/images/mandalorian2.png";
+    character.src = "../dist/images/lightyagami.png";
     this.char = character;
     this.moving = false;
     this.speed = 5;
