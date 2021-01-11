@@ -39,7 +39,7 @@ class Detective {
   }
 
   movementFrames(){
-    if(this.animateX < 3 && this.following ){
+    if(this.animateX < 3 && !this.following ){
       this.animateX++
     } else {
       this.animateX = 0;
