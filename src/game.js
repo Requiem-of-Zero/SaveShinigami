@@ -112,9 +112,10 @@ export default class SaveShinigami {
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
+    console.log(score)
 
     if(+score > localStorage.getItem('gameHighScore')){
-      document.getElementById('new-high').innerText = 'NEW HIGH SCORE!'
+      document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
     }
 
     score > 1 ? applePlural = 'apples' : applePlural = 'apple';
@@ -156,10 +157,12 @@ export default class SaveShinigami {
 
   pause() {
     this.gameActive = false;
+    document.getElementById('pause-screen').style.display = 'block';
   }
 
   resume() {
     this.gameActive = true;
+    document.getElementById('pause-scree').style.display = 'none'
     this.animate();
   }
 
