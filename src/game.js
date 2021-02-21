@@ -12,6 +12,7 @@ export default class SaveShinigami {
     this.playing = false;
     this.welcome = true;
     this.score = 0;
+    this.highScore = localStorage.getItem('gameHighScore')
 
     this.then = Date.now();
     this.now;
@@ -112,7 +113,7 @@ export default class SaveShinigami {
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
 
-    if(+score > +localStorage.getItem('gameHighScore')){
+    if(+score > localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerText = 'NEW HIGH SCORE!'
     }
 
