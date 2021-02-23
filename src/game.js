@@ -13,6 +13,7 @@ export default class SaveShinigami {
     this.welcome = true;
 
     this.map = new Map(this.dimensions);
+    this.detective = new Detective(this.dimensions);
     this.map.animate(this.ctx);
   }
 
