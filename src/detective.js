@@ -1,12 +1,14 @@
 class Detective {
-  constructor(ctx, canvas){
+  constructor(dimensions){
     const character = new Image();
     character.src = "../dist/images/L.png";
     this.char = character;
+    this.type = 'detective'
+    this.dimensions = dimensions
     this.following = true;
     this.speed = 2;
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
+    this.x = Math.random() * dimensions.width;
+    this.y = Math.random() * dimensions.height;
     this.radius = 40;
     this.width = 32;
     this.height = 48;
@@ -17,6 +19,8 @@ class Detective {
   }
 
   chasePlayer(playerX, playerY){
+    this.movementFrames();
+
     if(this.x > playerX && this.following){
       this.animateY = 1
       this.x -= this.speed;
@@ -44,6 +48,16 @@ class Detective {
     } else {
       this.animateX = 0;
     }
+  }
+
+  animate(ctx){
+    ctx.drawImage(this.char,
+      this.width * this.animateX,
+      this.height * this.animateY,
+      this.width, this.height,
+      this.x, this.y,
+      this.width/4, this.height/4
+      )
   }
 
 }
