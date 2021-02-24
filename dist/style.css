@@ -1,6 +1,6 @@
 #game-canvas {
-  width: 800px;
-  height: 500px;
+  width: 1000px;
+  height: 600px;
   border: 1px solid black;
   background: #b3b3b3;
   position: absolute;
@@ -9,14 +9,117 @@
   transform: translate(-50%, -50%);
 }
 
-.title {
-  text-align: center;
-  margin-top: 100px;
-  font-family: 'Press Start 2P',
-  cursive;
-  color: white;
+#start-screen {
+  position: relative;
 }
 
 body {
-  background: black;
+  font-family: 'Press Start 2P',
+  cursive;
+}
+
+.title {
+  text-align: center;
+  margin-top: 100px;
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 15px;
+  right: 0;
+  text-align: center;
+}
+
+#game-menu {
+  list-style: none;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 0;
+}
+
+#game-menu>li:hover {
+  text-decoration: underline;
+}
+
+#start-btn {
+  margin-bottom: 20px;
+}
+
+#music-controls {
+  color: white;
+}
+
+.start-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  -webkit-user-drag: none;
+}
+
+body {
+  background: #191919;
+  user-select: none;
+}
+
+.default {
+  cursor: default;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.music-controls {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.music-controls > .hidden {
+  display: none;
+}
+
+#instructions {
+  position: absolute;
+  width: 35%;
+  border: 1px solid white;
+  border-radius: 4px;
+  height: 40vh;
+  padding: 0 4vw;
+  margin-top: auto;
+  margin-bottom: 5vh;
+  transition: transform 250ms ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #835555;
+}
+
+
+#instructions > p {
+  line-height: 2;
+  color: #b3b3b3;
+}
+
+#instructions > h1 {
+  color: #fff;
+}
+
+article:nth-child(2) {
+  color: red;
 }

@@ -1,42 +1,39 @@
-import Player from './player';
-import Detective from './detective';
-const canvas = document.getElementById('game-canvas');
-const ctx = canvas.getContext('2d');
-const player = new Player(ctx, canvas);
-const detective = new Detective(ctx, canvas)
+import Game from './game';
+import Map from './map';
 
-canvas.width = 800;
-canvas.height = 500;
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas  = document.getElementById('game-canvas')
+  const game = new Game(canvas);
+  const music = document.getElementById('music');
+  const startBtn = document.getElementById('start-btn');
+  const instructionBtn = document.getElementById('instructions-btn');
+  const musicControls = document.getElementsByClassName('music-controls')[0];
+  const musicPlay = document.getElementById('music-unmute');
+  const musicPause = document.getElementById('music-mute');
+  const instructions = document.getElementById('instructions');
+  const buttonSound = document.getElementById('button-sound');
 
-const background = new Image();
+  musicPlay.addEventListener('click', () => {
+      music.play();
+      console.log('hi')
+      musicPause.style.display = 'block'
+      musicPlay.style.display = 'none'
+  })
 
-background.src = "../dist/images/background.jpg";
+  musicPause.addEventListener('click', () => {
+    music.pause();
+    musicPlay.style.display = 'block'
+    musicPause.style.display = 'none';
+  })
 
-function drawCharacter(img, spriteX, spriteY, spriteW, spriteH, dX, dY, dW, dH){
-  ctx.drawImage(img, spriteX, spriteY, spriteW, spriteH, dX, dY, dW, dH)
-}
 
-setInterval(() => {
-  animate()
-}, 40)
-
-const animate = () => {
-  ctx.clearRect(0,0, canvas.width, canvas.height)
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
-  drawCharacter(detective.char, detective.width * detective.animateX, detective.height * detective.animateY,
-                detective.width, detective.height, detective.x, detective.y, detective.width, detective.height);
-  drawCharacter(player.char, player.width * player.animateX, player.height * player.animateY,
-                player.width, player.height, player.x, player.y, player.width, player.height);
-  player.moveChar()
-  player.movementFrames();
-  detective.chasePlayer(player.x, player.y);
-  detective.movementFrames();
-}
-
-window.addEventListener('keydown', e => {
-  player.keys[e.key] = true;
-});
-
-window.addEventListener('keyup', e => {
-  delete player.keys[e.key]
-});
+  instructionBtn.addEventListener('click', () => {
+    if(instructions.style.display === 'none'){
+      instructions.style.display = 'block'
+      buttonSound.play();
+    } else {
+      instructions.style.display = 'none'
+      buttonSound.play();
+    }
+  })
+})

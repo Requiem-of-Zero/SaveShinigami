@@ -7,15 +7,13 @@ class Detective {
     this.dimensions = dimensions
     this.following = true;
     this.speed = 2;
-    this.x = Math.random() * dimensions.width;
-    this.y = Math.random() * dimensions.height;
+    this.x = Math.random() * this.dimensions.width;
+    this.y = Math.random() * this.dimensions.height;
     this.radius = 40;
     this.width = 32;
     this.height = 48;
     this.animateX = 0;
     this.animateY = 0;
-    this.ctx = ctx;
-    this.canvas = canvas;
   }
 
   chasePlayer(playerX, playerY){
