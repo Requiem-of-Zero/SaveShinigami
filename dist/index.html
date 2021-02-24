@@ -18,8 +18,15 @@
       <li id='start-btn' class='pointer' >Start</li>
       <li id='instructions-btn'class='pointer' >Instructions</li>
     </ul>
+    <article id='instructions' class='hidden'>
+      <p>Shinigami are gods of the underworld, the gatekeepers of death.</p>
+      <p>W, A, S, D - Move Light Yagami</p>
+      <h1>Objective:</h1>
+      <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
+    </article>
   </div>
 
+  <!-- Audio files -->
   <audio 
     src="../src/assets/audio/theme.mp3"
     id='music'
@@ -27,17 +34,31 @@
     autoplay
   ></audio>
 
+  <audio 
+    src="../src/assets/audio/button-sound.mp3"
+    id='button-sound'
+  ></audio>
+
   <div class="music-controls">
     <i id='music-mute' class="fas fa-volume-up pointer"></i>
     <i id='music-unmute' class="fas fa-volume-mute pointer hidden"></i>
   </div>
+
+  <!-- <article class='instructions expand'>
+    <p>Shinigami are gods of the underworld, the gatekeepers of death.</p>
+    <p>W, A, S, D - Move Light Yagami</p>
+    <h1>Objective:</h1>
+    <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
+  </article> -->
 
   <div class="game-wrapper">
     <canvas id="game-canvas" class='hidden'></canvas>
   </div>
   <script>
     var music = document.getElementById("music");
+    var buttonSound = document.getElementById('button-sound')
     music.volume = 0.03;
+    buttonSound.volume = 0.5;
   </script>
   <script src='./main.js'></script>
 </body>

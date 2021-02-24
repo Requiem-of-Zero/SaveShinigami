@@ -49,7 +49,7 @@ body {
 }
 
 #start-btn {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #music-controls {
@@ -61,10 +61,12 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  -webkit-user-drag: none;
 }
 
 body {
   background: #191919;
+  user-select: none;
 }
 
 .default {
@@ -89,4 +91,35 @@ body {
 
 .music-controls > .hidden {
   display: none;
+}
+
+#instructions {
+  position: absolute;
+  width: 35%;
+  border: 1px solid white;
+  border-radius: 4px;
+  height: 40vh;
+  padding: 0 4vw;
+  margin-top: auto;
+  margin-bottom: 5vh;
+  transition: transform 250ms ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #835555;
+}
+
+
+#instructions > p {
+  line-height: 2;
+  color: #b3b3b3;
+}
+
+#instructions > h1 {
+  color: #fff;
+}
+
+#instructions:nth-child(2) {
+  color: red;
 }
