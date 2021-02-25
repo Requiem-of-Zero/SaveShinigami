@@ -1,7 +1,7 @@
 #game-canvas {
-  width: 1000px;
-  height: 600px;
-  border: 1px solid black;
+  width: 800px;
+  height: 500px;
+  border: 5px solid #835555;
   background: #b3b3b3;
   position: absolute;
   top: 50%;
@@ -122,4 +122,12 @@ body {
 
 article:nth-child(2) {
   color: red;
+}
+
+.controls {
+  color: red;
+  padding: 5px;
+  background-color: #b3b3b3;
+  border-radius: 5px;
+  text-align: center;
 }

@@ -6,9 +6,9 @@ class Detective {
     this.type = 'detective'
     this.dimensions = dimensions
     this.following = true;
-    this.speed = 2;
-    this.x = Math.random() * this.dimensions.width;
-    this.y = Math.random() * this.dimensions.height;
+    this.speed = 1;
+    this.x = Math.random() * this.dimensions.width - 250;
+    this.y = Math.random() * this.dimensions.height - 250;
     this.radius = 40;
     this.width = 32;
     this.height = 48;
@@ -41,7 +41,7 @@ class Detective {
   }
 
   movementFrames(){
-    if(this.animateX < 3 && !this.following ){
+    if(this.animateX < 3 && this.following ){
       this.animateX++
     } else {
       this.animateX = 0;
@@ -54,7 +54,7 @@ class Detective {
       this.height * this.animateY,
       this.width, this.height,
       this.x, this.y,
-      this.width/4, this.height/4
+      this.width/2, this.height/2
       )
   }
 
