@@ -36,4 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonSound.play();
     }
   })
+
+  startBtn.addEventListener('click', () => {
+    buttonSound.play();
+    game.play();
+  })
 })

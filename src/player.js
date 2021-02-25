@@ -5,25 +5,23 @@ class Player {
     this.char = character;
 
     this.moving = false;
-    this.speed = 5;
+    this.speed = 3;
     this.type = 'player'
     this.dimensions = dimensions
-    this.x = 400;
-    this.y = 400;
+    this.x = 100;
+    this.y = 100;
 
     this.width = 32;
     this.height = 48;
     this.animateX = 0;
     this.animateY = 0;
-
-    this.keys = [];
   }
 
   moveChar(keys){
     this.movementFrames();
 
     this.moving = false;
-    if(keys['w'] && this.y > 50){
+    if(keys['w'] && this.y > 10){
       this.y -= this.speed;
       this.animateY = 3;
       this.moving = true
@@ -54,13 +52,15 @@ class Player {
   }
 
   animate(ctx) {
-    ctx.drawImage(this.char, 
+    ctx.drawImage(this.char,
       this.width * this.animateX,
       this.height * this.animateY,
-      this.width, this.height,
-      this.x, this.y,
-      this.width, this.height
-      );
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width * 0.5,
+      this.height * 0.5);
   }
 }
 
