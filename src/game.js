@@ -29,7 +29,10 @@ export default class SaveShinigami {
 
   appleCollisionDetection(){
     let distance = this.distance(this.player.x, this.player.y, this.apple.x, this.apple.y);
-    distance < this.player.width ? true : false;
+    if(distance < this.player.width) {
+      return true;
+    }
+    return false;
   }
 
   detectiveCollisionDetection(){
