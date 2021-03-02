@@ -21,7 +21,7 @@ class Player {
     this.movementFrames();
 
     this.moving = false;
-    if(keys['w'] && this.y > 10){
+    if(keys['w'] && this.y > 0){
       this.y -= this.speed;
       this.animateY = 3;
       this.moving = true
@@ -31,12 +31,12 @@ class Player {
       this.animateY = 1;
       this.moving = true
     }
-    if(keys['s'] && this.y < this.dimensions.height - this.height ){
+    if(keys['s'] && this.y < this.dimensions.height - (this.height * 0.5) ){
       this.y += this.speed;
       this.animateY = 0;
       this.moving = true
     }
-    if(keys['d'] && this.x < this.dimensions.width - this.width){
+    if(keys['d'] && this.x < this.dimensions.width - (this.width * 0.5) ){
       this.x += this.speed;
       this.animateY = 2;
       this.moving = true

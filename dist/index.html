@@ -55,9 +55,27 @@
     <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
   </article> -->
 
-  <div class="game-wrapper">
+  <div id='game-wrapper' class="hidden">
+    <div id='high-score' class="high-score">HIGH SCORE: 0</div>
+    <div id="score" class='score'>SCORE: 0</div>
+    <script>
+      const scoreBoard = document.querySelector('score')
+      const highScoreBoard = document.querySelector('.high-score');
+      let score = 0;
+      let highScore = localStorage.getItem('gameHighScore') || 0;
+      highScoreBoard.textContent = `HIGH SCORE: ${highScore}`;
+
+      const checkHighScore = () => {
+        if(score > localStorage.getItem('gameHighScore')) {
+          localStorage.setItem('gameHighScore', score);
+          highScore = score;
+          highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
+        }
+      }
+    </script>
     <canvas id="game-canvas" class='hidden'></canvas>
   </div>
+</div>
   <script>
     var music = document.getElementById("music");
     var buttonSound = document.getElementById('button-sound')
