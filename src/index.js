@@ -1,9 +1,8 @@
 import Game from './game';
-import Map from './map';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas  = document.getElementById('game-canvas')
-  const game = new Game(canvas);
+  let game;
   const music = document.getElementById('music');
   const startBtn = document.getElementById('start-btn');
   const instructionBtn = document.getElementById('instructions-btn');
@@ -12,10 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicPause = document.getElementById('music-mute');
   const instructions = document.getElementById('instructions');
   const buttonSound = document.getElementById('button-sound');
+  const homeBtn = document.getElementById('home-btn');
+  const gameOver =  document.getElementById('game-over');
+  const startScreen = document.getElementById('start-screen');
+  const restartBtn = document.getElementById('restart-btn');
 
   musicPlay.addEventListener('click', () => {
       music.play();
-      console.log('hi')
       musicPause.style.display = 'block'
       musicPlay.style.display = 'none'
   })
@@ -26,6 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
     musicPause.style.display = 'none';
   })
 
+  homeBtn.addEventListener('click', () => {
+    music.play();
+    gameOver.style.display = 'none';
+    startScreen.style.display = 'block';
+    buttonSound.play();
+  })
+
+  restartBtn.addEventListener('click', () => {
+    buttonSound.play();
+    game = new Game(canvas)
+    game.restart();
+  })
 
   instructionBtn.addEventListener('click', () => {
     if(instructions.style.display === 'none'){
@@ -38,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   startBtn.addEventListener('click', () => {
+    music.volume = 0.05;
     buttonSound.play();
+    game = new Game(canvas)
     game.play();
   })
 })
