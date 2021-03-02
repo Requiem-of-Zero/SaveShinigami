@@ -1,5 +1,4 @@
 import Game from './game';
-import Map from './map';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas  = document.getElementById('game-canvas')
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   musicPlay.addEventListener('click', () => {
       music.play();
-      console.log('hi')
       musicPause.style.display = 'block'
       musicPlay.style.display = 'none'
   })
@@ -38,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   startBtn.addEventListener('click', () => {
+    music.volume = 0.05;
     buttonSound.play();
     game.play();
   })

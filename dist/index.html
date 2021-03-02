@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/e9f5bd8861.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Start screen -->
   <div id="start-screen">
     <header class='title default'>Save the Shinigami</header>
     <img class='start-img' src="../dist/images/I-Love-Apples.jpg">
@@ -30,57 +31,73 @@
     </article>
   </div>
 
+  
   <!-- Audio files -->
   <audio 
-    src="../src/assets/audio/theme.mp3"
-    id='music'
-    loop
-    autoplay
+  src="../src/assets/audio/theme.mp3"
+  id='music'
+  loop
+  autoplay
   ></audio>
-
+  
   <audio 
-    src="../src/assets/audio/button-sound.mp3"
-    id='button-sound'
+  src="../src/assets/audio/button-sound.mp3"
+  id='button-sound'
   ></audio>
-
+  
+  <audio 
+  src="../src/assets/audio/bite.mp3" 
+  id="apple-sound"
+  ></audio>
+  
+  <audio 
+  src="../src/assets/audio/gameover.mp3" 
+  id="game-over-sound"
+  ></audio>
+  
   <div class="music-controls">
     <i id='music-mute' class="fas fa-volume-up pointer"></i>
     <i id='music-unmute' class="fas fa-volume-mute pointer hidden"></i>
   </div>
-
+  
   <!-- <article class='instructions expand'>
     <p>Shinigami are gods of the underworld, the gatekeepers of death.</p>
     <p>W, A, S, D - Move Light Yagami</p>
     <h1>Objective:</h1>
     <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
   </article> -->
-
+  
   <div id='game-wrapper' class="hidden">
-    <div id='high-score' class="high-score">HIGH SCORE: 0</div>
-    <div id="score" class='score'>SCORE: 0</div>
+    <div class="score-board">
+      <div id='high-score' class="high-score">HIGH SCORE: 0</div>
+      <div id="score" class='score'>SCORE: 0</div>
+    </div>
     <script>
-      const scoreBoard = document.querySelector('score')
+      const scoreBoard = document.querySelector('.score');
       const highScoreBoard = document.querySelector('.high-score');
-      let score = 0;
-      let highScore = localStorage.getItem('gameHighScore') || 0;
-      highScoreBoard.textContent = `HIGH SCORE: ${highScore}`;
-
-      const checkHighScore = () => {
-        if(score > localStorage.getItem('gameHighScore')) {
-          localStorage.setItem('gameHighScore', score);
-          highScore = score;
-          highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
-        }
-      }
-    </script>
+      </script>
     <canvas id="game-canvas" class='hidden'></canvas>
   </div>
+  <!-- End screen -->
+  <div id="game-over" class='hidden'>
+    <img 
+      src="https://broadinterests5957.files.wordpress.com/2015/08/crazy-light.png"
+      id='game-over-img'
+    >
+    <h1>GAME OVER.</h1>
+    <p id='game-over-msg' class='typewriter'></p>
+    <p id="game-over-score"></p>
+    <div id="end-menu">
+      <li id="restart-btn" class='pointer'>RESTART</li>
+      <li id="home-btn" class='pointer'>HOME</li>
+    </div>
+  </div>
 </div>
-  <script>
-    var music = document.getElementById("music");
-    var buttonSound = document.getElementById('button-sound')
-    music.volume = 0.1;
-    buttonSound.volume = 0.5;
+<script>
+  var music = document.getElementById("music");
+  var buttonSound = document.getElementById('button-sound')
+  music.volume = 0.1;
+  buttonSound.volume = 0.5;
   </script>
   <script src='./main.js'></script>
 </body>

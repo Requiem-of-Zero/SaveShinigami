@@ -134,13 +134,7 @@ article:nth-child(2) {
 }
 
 #high-score {
-  color: #b3b3b3;
-  background-color: rgba(37, 39, 37, 0.8);
-  position: absolute;
-  z-index: 2;
-  top: 10px;
-  left: 10px;
-  padding: 5px;
+  color: rgba(223, 30, 30, 0.918);
 }
 
 #game-wrapper {
@@ -151,4 +145,100 @@ article:nth-child(2) {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+#score {
+  margin-top: 10px;
+}
+
+.score-board {
+  color: #b3b3b3;
+  width: 25%;
+  height: auto;
+  background-color: rgba(37, 39, 37, 0.7);
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+}
+
+#game-over {
+  color: #fff;
+  width: 100%;
+  height: 700px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#game-over-img {
+  position: absolute;
+  opacity: 0.5;
+  width: 50%;
+  height: auto;
+}
+
+#end-menu {
+  margin-top: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+#end-menu > li {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#end-menu > li:hover {
+  text-decoration: underline;
+}
+
+#game-over-score {
+  font-size: 24px;
+  z-index: 2;
+}
+
+#game-over > h1 {
+  font-size: 50px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+#game-over-msg {
+  color: #fff;
+  overflow: hidden;
+  font-size: 26px;
+  width: 50%;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid red;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  animation:
+    typing 5s steps(15, end),
+    blink-caret .5s step-end infinite;
+  z-index: 2;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 50%
+  }
 }

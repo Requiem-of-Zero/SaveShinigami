@@ -47,25 +47,22 @@ export default class SaveShinigami {
   }
 
   handleAppleCollision(){
+    const biteSound = document.getElementById('apple-sound')
     this.apple = new Apple(this.dimensions);
+    biteSound.play();
     this.score += 1;
+    localStorage.setItem('gameScore', this.score)
   }
 
   handleDetectiveCollision(distance){
     if(distance < Math.random() * 150) {
-      this.gameOver('You got caught!')
+      this.gameOver('Yes.. I am indeed Kira himself.', localStorage.getItem('gameScore'))
     }
   }
 
   handleKeys(){
     window.addEventListener("keydown", this.handleKeyDown.bind(this));
     window.addEventListener("keyup", this.handleKeyUp.bind(this));
-  }
-
-  handleScore(){
-    let score = this.score
-    const scoreBoard = document.querySelector('score')
-    scoreBoard.textContent = `SCORE: ${score}`
   }
 
   handleKeyDown(e){
@@ -98,10 +95,27 @@ export default class SaveShinigami {
       localStorage.setItem('gameHighScore', this.score);
         highScore = this.score;
         highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
-    }
+    } 
   }
 
-  gameOver(message) {
+  setScore() {
+    let gameScore = localStorage.getItem('gameScore');
+    scoreBoard.textContent = `SCORE: ${gameScore}`;
+  }
+
+  gameOver(message, score) {
+    let gameOverAudio = document.getElementById('game-over-sound')
+    let music = document.getElementById('music')
+
+    document.getElementById('game-wrapper').style.display = 'none';
+    document.getElementById("game-over").style.display = "flex";
+    document.getElementById("game-over-msg").innerHTML = message;
+
+    const gameOverScore = document.getElementById('game-over-score');
+    gameOverScore.innerHTML = `You collected ${score} apples for Ryuk`
+
+    music.pause();
+    gameOverAudio.play();
     this.gameActive = false;
     this.playing = false;
     this.checkHighScore();
@@ -111,6 +125,8 @@ export default class SaveShinigami {
     this.gameActive = true;
     this.playing = true;
     this.score = 0;
+    localStorage.setItem('gameScore', 0)
+    highScoreBoard.textContent = `HIGH SCORE: ${localStorage.getItem('gameHighScore')}`
 
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-canvas').style.display = 'block';
@@ -143,9 +159,10 @@ export default class SaveShinigami {
 
     if(elapsedTime > 45 && this.gameActive) {
       this.then = this.now - (elapsedTime % 45);
-
+      this.checkHighScore();
       if(this.appleCollisionDetection()){
         this.handleAppleCollision.call(this);
+        this.setScore();
       }
 
       let detectiveDistance = this.detectiveCollisionDetection()
