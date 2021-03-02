@@ -46,6 +46,7 @@ body {
 
 #game-menu>li:hover {
   text-decoration: underline;
+  color: red;
 }
 
 #start-btn {
@@ -82,7 +83,7 @@ body {
   display: none;
 }
 
-.music-controls {
+.game-controls {
   color: white;
   font-size: 40px;
   position: absolute;
@@ -90,7 +91,7 @@ body {
   right: 30px;
 }
 
-.music-controls > .hidden {
+.game-controls > .hidden {
   display: none;
 }
 
@@ -179,8 +180,13 @@ article:nth-child(2) {
 #game-over-img {
   position: absolute;
   opacity: 0.5;
-  width: 50%;
+  width: 55%;
   height: auto;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 #end-menu {
@@ -197,6 +203,7 @@ article:nth-child(2) {
 
 #end-menu > li:hover {
   text-decoration: underline;
+  color: red;
 }
 
 #game-over-score {
@@ -230,6 +237,8 @@ article:nth-child(2) {
     typing 5s steps(15, end),
     blink-caret .5s step-end infinite;
   z-index: 2;
+  background-color: rgba(37, 39, 37, 0.5);
+  padding: 10px;
 }
 
 /* The typing effect */
