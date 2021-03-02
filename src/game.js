@@ -11,6 +11,7 @@ export default class SaveShinigami {
 
     this.playing = false;
     this.welcome = true;
+    this.score = 0;
 
     this.then = Date.now();
     this.now;
@@ -18,6 +19,7 @@ export default class SaveShinigami {
     this.map = new Map(this.dimensions);
     this.detective = new Detective(this.dimensions);
     this.map.animate(this.ctx);
+    this.lastDetectiveCollision = Date.now();
 
     this.play = this.play.bind(this);
     this.detectiveCollisionDetection = this.detectiveCollisionDetection.bind(this);
@@ -29,7 +31,7 @@ export default class SaveShinigami {
 
   appleCollisionDetection(){
     let distance = this.distance(this.player.x, this.player.y, this.apple.x, this.apple.y);
-    if(distance < this.player.width) {
+    if(distance < this.player.width / 2) {
       return true;
     }
     return false;
@@ -37,13 +39,16 @@ export default class SaveShinigami {
 
   detectiveCollisionDetection(){
     let distance = this.distance(this.player.x, this.player.y, this.detective.x, this.detective.y)
-    distance < (this.player.width + this.detective.width / 1.5 ) ? distance : 0;
+    if(distance < (this.player.width / 3)) {
+      return distance;
+    } else {
+      return 0;
+    }
   }
 
   handleAppleCollision(){
     this.apple = new Apple(this.dimensions);
     this.score += 1;
-    console.log('collision')
   }
 
   handleDetectiveCollision(distance){
@@ -57,6 +62,12 @@ export default class SaveShinigami {
     window.addEventListener("keyup", this.handleKeyUp.bind(this));
   }
 
+  handleScore(){
+    let score = this.score
+    const scoreBoard = document.querySelector('score')
+    scoreBoard.textContent = `SCORE: ${score}`
+  }
+
   handleKeyDown(e){
     if(e.key === ''){
       if(this.playing){
@@ -64,6 +75,8 @@ export default class SaveShinigami {
       } else {
         this.restart();
       }
+    } else if(e.key === 'Escape'){
+      
     } else {
       this.keys[e.key] = true;
     }
@@ -78,9 +91,20 @@ export default class SaveShinigami {
     return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
   }
 
+  checkHighScore() {
+    let highScore = localStorage.getItem('gameHighScore') || 0;
+
+    if(this.score > localStorage.getItem('gameHighScore')) {
+      localStorage.setItem('gameHighScore', this.score);
+        highScore = this.score;
+        highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
+    }
+  }
+
   gameOver(message) {
     this.gameActive = false;
     this.playing = false;
+    this.checkHighScore();
   }
 
   play() {
@@ -90,10 +114,11 @@ export default class SaveShinigami {
 
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-canvas').style.display = 'block';
-    
+    document.getElementById('high-score').style.display = 'block';
+    document.getElementById('game-wrapper').style.display = 'block';
+
     this.apple = new Apple(this.dimensions);
     this.player = new Player(this.dimensions);
-
     this.animate();
   }
 
@@ -116,11 +141,18 @@ export default class SaveShinigami {
 
     let elapsedTime = this.now - this.then;
 
-    if(elapsedTime > 40 && this.gameActive) {
-      this.then = this.now - (elapsedTime % 40);
+    if(elapsedTime > 45 && this.gameActive) {
+      this.then = this.now - (elapsedTime % 45);
 
       if(this.appleCollisionDetection()){
         this.handleAppleCollision.call(this);
+      }
+
+      let detectiveDistance = this.detectiveCollisionDetection()
+
+      if(detectiveDistance && this.now > 200) {
+        this.lastDetectiveCollision = this.now;
+        this.handleDetectiveCollision.call(this, detectiveDistance);
       }
   
       this.map.animate(this.ctx)
