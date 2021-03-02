@@ -73,7 +73,7 @@ export default class SaveShinigami {
         this.restart();
       }
     } else if(e.key === 'Escape'){
-      
+      this.gameActive === true ? this.pause() : this.resume();
     } else {
       this.keys[e.key] = true;
     }
@@ -93,8 +93,8 @@ export default class SaveShinigami {
 
     if(this.score > localStorage.getItem('gameHighScore')) {
       localStorage.setItem('gameHighScore', this.score);
-        highScore = this.score;
-        highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
+      highScore = this.score;
+      highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
     } 
   }
 
@@ -106,10 +106,16 @@ export default class SaveShinigami {
   gameOver(message, score) {
     let gameOverAudio = document.getElementById('game-over-sound')
     let music = document.getElementById('music')
+    let currScore = localStorage.getItem('gameScore');
+    let highScore = localStorage.getItem('gameHighScore');
 
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
+
+    if(currScore > highScore){
+      document.getElementById('new-high').innerText = 'NEW HIGH SCORE!'
+    }
 
     const gameOverScore = document.getElementById('game-over-score');
     gameOverScore.innerHTML = `You collected ${score} apples for Ryuk`
@@ -127,7 +133,6 @@ export default class SaveShinigami {
     this.score = 0;
     localStorage.setItem('gameScore', 0)
     highScoreBoard.textContent = `HIGH SCORE: ${localStorage.getItem('gameHighScore')}`
-
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-canvas').style.display = 'block';
     document.getElementById('high-score').style.display = 'block';
@@ -140,6 +145,10 @@ export default class SaveShinigami {
 
   restart() {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+    document.getElementById('game-over').style.display = 'none';
+    let music = document.getElementById('music');
+    music.currentTime = 0;
+
     this.play()
   }
 
@@ -157,12 +166,12 @@ export default class SaveShinigami {
 
     let elapsedTime = this.now - this.then;
 
-    if(elapsedTime > 45 && this.gameActive) {
+    if(elapsedTime > 45 && this.gameActive && this.playing ) {
+      this.setScore();
       this.then = this.now - (elapsedTime % 45);
       this.checkHighScore();
       if(this.appleCollisionDetection()){
         this.handleAppleCollision.call(this);
-        this.setScore();
       }
 
       let detectiveDistance = this.detectiveCollisionDetection()
