@@ -6,7 +6,7 @@ class Detective {
     this.type = 'detective'
     this.dimensions = dimensions
     this.following = true;
-    this.speed = 1;
+    this.speed = 2;
     this.x = Math.random() * this.dimensions.width - 250;
     this.y = Math.random() * this.dimensions.height - 250;
     this.radius = 40;
