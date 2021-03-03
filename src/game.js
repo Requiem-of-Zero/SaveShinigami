@@ -106,19 +106,20 @@ export default class SaveShinigami {
   gameOver(message, score) {
     let gameOverAudio = document.getElementById('game-over-sound')
     let music = document.getElementById('music')
-    let currScore = localStorage.getItem('gameScore');
-    let highScore = localStorage.getItem('gameHighScore');
+    let applePlural;
 
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
 
-    if(currScore > highScore){
+    if(+score > +localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerText = 'NEW HIGH SCORE!'
     }
 
+    score > 1 ? applePlural = 'apples' : applePlural = 'apple';
+
     const gameOverScore = document.getElementById('game-over-score');
-    gameOverScore.innerHTML = `You collected ${score} apples for Ryuk`
+    gameOverScore.innerHTML = `You collected ${score} ${applePlural} for Ryuk`
 
     music.pause();
     gameOverAudio.play();
@@ -147,7 +148,7 @@ export default class SaveShinigami {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
     document.getElementById('game-over').style.display = 'none';
     let music = document.getElementById('music');
-    music.currentTime = 0;
+    music.play()
 
     this.play()
   }
