@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => /* binding */ Apple\n/* harmony export */ });\nclass Apple {\n  constructor(dimensions){\n    this.dimensions = dimensions;\n    this.type = 'apple';\n\n    this.x = Math.random() * (this.dimensions.width);\n    this.y = Math.random() * (this.dimensions.height  - 10);\n  }\n\n  drawApple(ctx){\n    const apple = new Image();\n    apple.src = '../dist/images/apple.png'\n    ctx.drawImage(apple, this.x, this.y, 15, 15)\n  }\n\n  animate(ctx){\n    this.drawApple(ctx);\n  }\n\n}\n\n//# sourceURL=webpack://SaveShinigami/./src/apple.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => /* binding */ Apple\n/* harmony export */ });\nclass Apple {\n  constructor(dimensions){\n    this.dimensions = dimensions;\n    this.type = 'apple';\n\n    this.x = Math.random() * (this.dimensions.width - 20);\n    this.y = Math.random() * (this.dimensions.height - 20);\n  }\n\n  drawApple(ctx){\n    const apple = new Image();\n    apple.src = '../dist/images/apple.png'\n    ctx.drawImage(apple, this.x, this.y, 15, 15)\n  }\n\n  animate(ctx){\n    this.drawApple(ctx);\n  }\n\n}\n\n//# sourceURL=webpack://SaveShinigami/./src/apple.js?");
 
 /***/ }),
 
