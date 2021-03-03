@@ -3,8 +3,8 @@ export default class Apple {
     this.dimensions = dimensions;
     this.type = 'apple';
 
-    this.x = Math.random() * (this.dimensions.width);
-    this.y = Math.random() * (this.dimensions.height  - 10);
+    this.x = Math.random() * (this.dimensions.width - 20);
+    this.y = Math.random() * (this.dimensions.height - 20);
   }
 
   drawApple(ctx){
