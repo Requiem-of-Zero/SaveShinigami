@@ -180,7 +180,7 @@ article:nth-child(2) {
 #game-over-img {
   position: absolute;
   opacity: 0.5;
-  width: 55%;
+  width: 1000px;
   height: auto;
   user-select: none;
   -moz-user-select: none;
@@ -229,7 +229,7 @@ article:nth-child(2) {
   /* Keeps the content on a single line */
   margin: 0 auto;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
   /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em;
   /* Adjust as needed */
