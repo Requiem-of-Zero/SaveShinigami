@@ -93,12 +93,14 @@ export default class SaveShinigami {
 
   checkHighScore() {
     let highScore = localStorage.getItem('gameHighScore') || 0;
-
-    if(this.score > localStorage.getItem('gameHighScore')) {
+    if(this.score >= localStorage.getItem('gameHighScore')) {
+      document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
       localStorage.setItem('gameHighScore', this.score);
       highScore = this.score;
       highScoreBoard.textContent = `HIGH SCORE: ${highScore}`
-    } 
+    } else {
+      document.getElementById('new-high').innerHTML = ''
+    }
   }
 
   setScore() {
@@ -115,6 +117,8 @@ export default class SaveShinigami {
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
     console.log(score)
+    console.log(localStorage.getItem('gameHighScore'));
+    console.log(score > +localStorage.getItem('gameHighScore'))
 
     if(score > +localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
@@ -136,7 +140,7 @@ export default class SaveShinigami {
     this.gameActive = true;
     this.playing = true;
     this.score = 0;
-    localStorage.setItem('gameScore', 0)
+    localStorage.setItem('gameScore', this.score)
     highScoreBoard.textContent = `HIGH SCORE: ${localStorage.getItem('gameHighScore')}`
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-canvas').style.display = 'block';
