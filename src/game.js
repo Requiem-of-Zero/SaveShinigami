@@ -159,18 +159,23 @@ export default class SaveShinigami {
 
   pause() {
     let music = document.getElementById('music')
+    let keySound = document.getElementById('button-sound')
+    document.getElementById('music-unmute').style.display = 'none';
     document.getElementById('pause').style.display = 'block';
     this.gameActive = false;
-
+    keySound.play();
     music.pause();
   }
 
   resume() {
     let music = document.getElementById('music')
+    let keySound = document.getElementById('button-sound')
+
+    document.getElementById('music-mute').style.display = 'block';
     document.getElementById('pause').style.display = 'none';
     this.gameActive = true;
     music.play();
-
+    keySound.play();
     this.animate();
   }
 
