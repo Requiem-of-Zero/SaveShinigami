@@ -12,6 +12,7 @@ export default class SaveShinigami {
     this.playing = false;
     this.welcome = true;
     this.score = 0;
+    this.highScore = localStorage.getItem('gameHighScore');
 
     this.then = Date.now();
     this.now;
@@ -22,6 +23,8 @@ export default class SaveShinigami {
     this.lastDetectiveCollision = Date.now();
 
     this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
+    this.resume = this.resume.bind(this);
     this.detectiveCollisionDetection = this.detectiveCollisionDetection.bind(this);
     this.appleCollisionDetection = this.appleCollisionDetection.bind(this);
     this.animate = this.animate.bind(this);
@@ -112,8 +115,8 @@ export default class SaveShinigami {
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
 
-    if(+score > +localStorage.getItem('gameHighScore')){
-      document.getElementById('new-high').innerText = 'NEW HIGH SCORE!'
+    if(score > +localStorage.getItem('gameHighScore')){
+      document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
     }
 
     score > 1 ? applePlural = 'apples' : applePlural = 'apple';
@@ -154,11 +157,17 @@ export default class SaveShinigami {
   }
 
   pause() {
+    let music = document.getElementById('music')
+    document.getElementById('pause').style.display = 'block';
     this.gameActive = false;
+    music.pause();
   }
 
   resume() {
+    let music = document.getElementById('music')
+    document.getElementById('pause').style.display = 'none';
     this.gameActive = true;
+    music.play();
     this.animate();
   }
 
