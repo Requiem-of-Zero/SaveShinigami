@@ -114,6 +114,7 @@ export default class SaveShinigami {
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
+    console.log(score)
 
     if(score > +localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
@@ -160,6 +161,7 @@ export default class SaveShinigami {
     let music = document.getElementById('music')
     document.getElementById('pause').style.display = 'block';
     this.gameActive = false;
+
     music.pause();
   }
 
@@ -168,6 +170,7 @@ export default class SaveShinigami {
     document.getElementById('pause').style.display = 'none';
     this.gameActive = true;
     music.play();
+
     this.animate();
   }
 
