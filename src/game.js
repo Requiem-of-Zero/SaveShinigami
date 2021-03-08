@@ -116,9 +116,6 @@ export default class SaveShinigami {
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
-    console.log(score)
-    console.log(localStorage.getItem('gameHighScore'));
-    console.log(score > +localStorage.getItem('gameHighScore'))
 
     if(score > +localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
