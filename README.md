@@ -44,7 +44,7 @@
 
 ## Limiting Framerates:
 
-  *Javascript's built-in requestAnimationFrame was too fast for the sprite sheet that made the player and detective move too quickly
+  * Javascript's built-in requestAnimationFrame was too fast for the sprite sheet that made the player and detective move too quickly
   * Solved this by using `Date.now()` to calculate the elapsed time between frames integrated with a this.gameActive instance variable to handle framerates.
 
   ``` js
