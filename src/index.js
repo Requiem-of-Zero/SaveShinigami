@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     game = new Game(canvas)
     game.restart();
   })
-
+  
   instructionBtn.addEventListener('click', () => {
     if(instructions.style.display === 'none'){
       instructions.style.display = 'block'

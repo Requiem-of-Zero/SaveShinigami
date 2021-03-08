@@ -251,3 +251,13 @@ article:nth-child(2) {
     width: 50%
   }
 }
+
+#pause {
+  position: absolute;
+  width: 1000px;
+  height: 600px;
+  background-image: url(https://media.istockphoto.com/vectors/glitch-vhs-background-no-signal-template-old-video-tape-texture-retro-vector-id1221688785?b=1&k=6&m=1221688785&s=612x612&w=0&h=DfBCrUZfwgcs4Yp467SxkjChYISOyWBn_J6zWCG1XU8=);
+  z-index: 2;
+  opacity: 0.4;
+  display: none;
+}

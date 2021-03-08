@@ -26,12 +26,14 @@
       <span class='controls' >S</span>
       <span class='controls' >D</span>
       <span> - Move Light Yagami</span>
+      <p></p>
+      <span class='controls'>esc</span>
+      <span> - Press escape to pause and resume the game!</span>
       <h1>Objective:</h1>
       <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
     </article>
   </div>
 
-  
   <!-- Audio files -->
   <audio 
   src="../src/assets/audio/theme.mp3"
@@ -65,6 +67,7 @@
       <div id='high-score' class="high-score">HIGH SCORE: 0</div>
       <div id="score" class='score'>SCORE: 0</div>
     </div>
+    <div id="pause"></div>
     <script>
       const scoreBoard = document.querySelector('.score');
       const highScoreBoard = document.querySelector('.high-score');
