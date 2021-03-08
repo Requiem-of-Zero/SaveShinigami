@@ -75,7 +75,7 @@ export default class SaveShinigami {
       } else {
         this.restart();
       }
-    } else if(e.key === 'Escape'){
+    } else if(e.key === 'Escape' && this.playing){
       this.gameActive === true ? this.pause() : this.resume();
     } else {
       this.keys[e.key] = true;
