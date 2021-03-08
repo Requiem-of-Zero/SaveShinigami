@@ -1,7 +1,7 @@
 class Player {
   constructor(dimensions){
     const character = new Image();
-    character.src = "../dist/images/lightyagami.png";
+    character.src = "./dist/images/lightyagami.png";
     this.char = character;
 
     this.moving = false;

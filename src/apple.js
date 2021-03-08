@@ -9,7 +9,7 @@ export default class Apple {
 
   drawApple(ctx){
     const apple = new Image();
-    apple.src = '../dist/images/apple.png'
+    apple.src = './dist/images/apple.png'
     ctx.drawImage(apple, this.x, this.y, 15, 15)
   }
 

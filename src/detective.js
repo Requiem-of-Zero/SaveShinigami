@@ -1,7 +1,7 @@
 class Detective {
   constructor(dimensions){
     const character = new Image();
-    character.src = "../dist/images/L.png";
+    character.src = "./dist/images/L.png";
     this.char = character;
     this.type = 'detective'
     this.dimensions = dimensions
