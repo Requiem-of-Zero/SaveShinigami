@@ -54,6 +54,10 @@ body {
   z-index: 2;
 }
 
+#instructions-btn {
+  margin-bottom: 20px;
+}
+
 #music-controls {
   color: white;
 }
