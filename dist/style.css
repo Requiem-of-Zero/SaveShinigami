@@ -116,6 +116,63 @@ body {
   background-color: #835555;
 }
 
+#profile {
+  position: absolute;
+  width: 20%;
+  border: 1px solid white;
+  border-radius: 4px;
+  height: 80vh;
+  padding: 0 4vw;
+  transition: transform 250ms ease-in-out;
+  bottom: 0;
+  text-align: center;
+  background-color: #835555;
+  font-size: 60px;
+}
+
+.profile-greeting {
+  font-size: 14px;
+  color: white;
+  line-height: 2;
+}
+
+.profile-links {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-footer {
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+}
+
+.red {
+  color: rgb(253, 19, 19);
+}
+
+.under-red {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+}
+
+.profile-greeting img {
+  width: 50%;
+  border-radius: 10%;
+}
+
+.fa-angellist {
+  color: white;
+}
+
+.fa-linkedin-in {
+  color: #0072b1;
+}
+
+.fa-github {
+  color: #171515;
+}
 
 #instructions > p {
   line-height: 2;
