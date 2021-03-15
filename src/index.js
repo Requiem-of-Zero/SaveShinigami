@@ -15,6 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameOver =  document.getElementById('game-over');
   const startScreen = document.getElementById('start-screen');
   const restartBtn = document.getElementById('restart-btn');
+  const about = document.getElementById('about');
+  const profile = document.getElementById('profile');
+
+  about.addEventListener('click', () => {
+    if(profile.style.display === 'none'){
+      profile.style.display = 'block'
+      buttonSound.play();
+    } else {
+      profile.style.display = 'none'
+      buttonSound.play();
+    }
+  })
 
   musicPlay.addEventListener('click', () => {
       music.play();
@@ -29,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   homeBtn.addEventListener('click', () => {
-    music.play();
     gameOver.style.display = 'none';
     startScreen.style.display = 'block';
     buttonSound.play();
