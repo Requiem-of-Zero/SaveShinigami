@@ -116,9 +116,6 @@ export default class SaveShinigami {
     document.getElementById('game-wrapper').style.display = 'none';
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("game-over-msg").innerHTML = message;
-    console.log(score)
-    console.log(localStorage.getItem('gameHighScore'));
-    console.log(score > +localStorage.getItem('gameHighScore'))
 
     if(score > +localStorage.getItem('gameHighScore')){
       document.getElementById('new-high').innerHTML = 'NEW HIGH SCORE!'
@@ -129,7 +126,7 @@ export default class SaveShinigami {
     const gameOverScore = document.getElementById('game-over-score');
     gameOverScore.innerHTML = `You collected ${score} ${applePlural} for Ryuk`
 
-    music.pause();
+    // music.pause();
     gameOverAudio.play();
     this.gameActive = false;
     this.playing = false;
@@ -156,7 +153,6 @@ export default class SaveShinigami {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
     document.getElementById('game-over').style.display = 'none';
     let music = document.getElementById('music');
-    music.play()
 
     this.play()
   }

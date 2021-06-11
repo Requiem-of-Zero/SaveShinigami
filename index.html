@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Save the Shinigami</title>
   <link rel="stylesheet" href="./dist/style.css">
@@ -11,14 +11,18 @@
   <script src="https://kit.fontawesome.com/e9f5bd8861.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <!-- Start screen -->
   <div id="start-screen">
     <header class='title default'>Save the Shinigami</header>
-    <img class='start-img' src="./dist/images/I-Love-Apples.jpg">
+    <img class='start-img' src="../dist/images/I-Love-Apples.jpg">
+
     <ul id='game-menu'>
       <li id='start-btn' class='pointer' >Start</li>
       <li id='instructions-btn'class='pointer' >Instructions</li>
+      <li id='about' class='pointer'>About me</li>
     </ul>
+
     <article id='instructions' class='hidden'>
       <p>Shinigami are gods of the underworld, the gatekeepers of death.</p>
       <span class='controls' >W</span>
@@ -32,8 +36,42 @@
       <h1>Objective:</h1>
       <p>You must gather apples for Ryuk for his help to get L's real name before he catches you!</p>
     </article>
-  </div>
 
+    <div id='profile' class='hidden'>
+
+      <div class="profile-greeting">
+        <p>Hi, my name is <span class='red'>Sam</span>.</p>
+        <img src="../dist/images/sam_wong.jpg">
+        <p>No, not with green eggs and ham. But I am.. a <span class='red'>fullstack software engineer</span> from <span class='red'>San Francisco</span>.</p>
+      </div>
+
+      <div class="profile-links">
+        <a 
+          href="https://github.com/Requiem-of-Zero" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        ><i class="fab fa-github"></i></a>
+      
+        <a 
+          href="https://www.linkedin.com/in/samuel-wong-61368a194/"
+          target="_blank"
+          rel="noopener noreferrer"
+        ><i class="fab fa-linkedin-in"></i></a>
+      
+        <a 
+          href="https://angel.co/u/samuel-wong-21"
+          target="_blank"
+          rel="noopener noreferrer"
+        ><i class="fab fa-angellist"></i></a>
+      </div>
+      
+      <div class="profile-footer">
+        <p>Please feel free to <span class='under-red'>connect with me</span> on any of the platforms above if you have 
+          <span class='under-red'>any questions</span> or you are interested in what I am currently working on<span class='red'>!</span></p>
+      </div>
+    </div>
+  </div>
+  
   <!-- Audio files -->
   <audio 
   src="./src/assets/audio/theme.mp3"
@@ -94,6 +132,9 @@
   <div id="pause-screen">
     
   </div>
+
+
+  
 </div>
 <script>
   var music = document.getElementById("music");

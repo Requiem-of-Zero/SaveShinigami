@@ -54,6 +54,10 @@ body {
   z-index: 2;
 }
 
+#instructions-btn {
+  margin-bottom: 20px;
+}
+
 #music-controls {
   color: white;
 }
@@ -112,6 +116,63 @@ body {
   background-color: #835555;
 }
 
+#profile {
+  position: absolute;
+  width: 20%;
+  border: 1px solid white;
+  border-radius: 4px;
+  height: 80vh;
+  padding: 0 4vw;
+  transition: transform 250ms ease-in-out;
+  bottom: 0;
+  text-align: center;
+  background-color: #835555;
+  font-size: 60px;
+}
+
+.profile-greeting {
+  font-size: 14px;
+  color: white;
+  line-height: 2;
+}
+
+.profile-links {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-footer {
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+}
+
+.red {
+  color: rgb(253, 19, 19);
+}
+
+.under-red {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+}
+
+.profile-greeting img {
+  width: 50%;
+  border-radius: 10%;
+}
+
+.fa-angellist {
+  color: white;
+}
+
+.fa-linkedin-in {
+  color: #0072b1;
+}
+
+.fa-github {
+  color: #171515;
+}
 
 #instructions > p {
   line-height: 2;
@@ -256,7 +317,7 @@ article:nth-child(2) {
   position: absolute;
   width: 1000px;
   height: 600px;
-  background-image: url(https://media.istockphoto.com/vectors/glitch-vhs-background-no-signal-template-old-video-tape-texture-retro-vector-id1221688785?b=1&k=6&m=1221688785&s=612x612&w=0&h=DfBCrUZfwgcs4Yp467SxkjChYISOyWBn_J6zWCG1XU8=);
+  background-image: url(https://image.shutterstock.com/mosaic_250/858871/629614340/stock-photo-colorful-background-realistic-flickering-analog-vintage-tv-signal-with-bad-interference-static-629614340.jpg);
   z-index: 2;
   opacity: 0.4;
   display: none;

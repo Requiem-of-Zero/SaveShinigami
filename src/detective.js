@@ -40,6 +40,10 @@ class Detective {
     }
   }
 
+  increaseSpeed() {
+    this.speed += 0.02;
+  }
+
   movementFrames(){
     if(this.animateX < 3 && this.following ){
       this.animateX++
